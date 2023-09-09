@@ -6,9 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const contactsRouter = require("./app/routes/contact.route");
+
 // Gọi router get
 app.get("/", (req, res) => {
     res.json({ message: "Wellcome to contact book application."});
 });
 
+app.use("/api/contacts", contactsRouter);
 module.exports = app;
